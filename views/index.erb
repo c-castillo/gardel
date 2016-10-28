@@ -4,14 +4,37 @@
 <input type="text" id=numero name=numero />
 <input type="submit" value="^"/>
 </form>
-letra= <%= @@mm.input %>
-<img src="0.png">
-<h2><%= @ahorcado.palabra %></h2>
-</body></html>
 
-<html>
-  
-  <h1 style="align:center">Juego del Ahorcado</h1>
 
+<br />
+<br />
+<table>
+  <tr>
+    <td><img src="0.png" height="20%"></td>
+    <td>
+      <table>
+        <tr>
+        <% @ahorcado.palabra.split('').each do |l| %>
+        <%= "<td>#{l}</td>" %>
+        <% end %>
+        </tr>
+        <tr>
+        <% @ahorcado.palabra.split('').each do |l| %>
+        <%= "<td>-</td>" %>
+        <% end %>
+        </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+
+
+
+letra= <% @@mm.input %>
+
+
+</body>
 </html>
+
+
 
