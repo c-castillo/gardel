@@ -1,25 +1,31 @@
 class Ahorcado
-	attr_reader :palabra, :diccionario
-	 @@PALABRAS = [
-	'AEROPUERTO', 'RAVIOLES', 'MILANESA', 'ARROZ', 'CORDERO',
-	'AUTOMOVIL','RODILLA', 'CABEZA', 'TRANVIA', 'PELOTA',
-	'PARRILLA'
-	]
 
-	def initialize
-		@diccionario = @@PALABRAS
-		@palabra = @@PALABRAS[Random.rand(@@PALABRAS.size-1)]
-	end
+  attr_reader :palabra, :diccionario
+  @@PALABRAS = [
+    'AEROPUERTO', 'RAVIOLES', 'MILANESA', 'ARROZ', 'CORDERO',
+    'AUTOMOVIL','RODILLA', 'CABEZA', 'TRANVIA', 'PELOTA',
+    'PARRILLA'
+  ]
+
+  def initialize
+    @diccionario = @@PALABRAS
+    @palabra = @@PALABRAS[Random.rand(@@PALABRAS.size-1)]
+    @letra = ''
+  end
 
   def ingresar_letra(letra)
     @letra = letra
-    validar_ingreso
+    validar_ingreso  
   end
 
   def validar_ingreso
+
     if @letra.length == 1 and @letra =~ /[A-Za-z]/m
-      return true
+      return 'OK'
     end
-    return false
+
+    return 'NOK'
+
   end
+
 end
