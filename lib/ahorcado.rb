@@ -12,6 +12,7 @@ class Ahorcado
     @palabra = palabra_hardcode || @@PALABRAS[Random.rand(@@PALABRAS.size-1)]
     @palabra_reemplazada = ("-"*@palabra.size).split('')
     @letra = ''
+    @puntaje = 0
   end
 
   def ingresar_letra(letra)
@@ -27,12 +28,15 @@ class Ahorcado
   end
 	
   def reemplazar(l)
+    esta = false
     if validar_ingreso
       @palabra.split('').each_with_index do |c,p|
         if (c==l)
           @palabra_reemplazada[p] = l
+          esta = true
         end
       end
+      @puntaje += 1 if !esta
       return true
     end
     return false
@@ -40,6 +44,10 @@ class Ahorcado
 	
   def palabra_actual
     @palabra_reemplazada.join
+  end
+
+  def puntaje
+    @puntaje
   end
 
 end
