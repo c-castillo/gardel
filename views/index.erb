@@ -1,11 +1,6 @@
-<html><body>
-<h1>Ahorcado</h1>
-<form method="POST" action="validar">
-<input type="text" id=numero name=numero />
-<input type="submit" value="^"/>
-</form>
-
-
+<html>
+<body>
+<h1>Ahorcado de Gardel</h1>
 <br />
 <br />
 <table>
@@ -14,12 +9,12 @@
     <td>
       <table>
         <tr>
-        <% @ahorcado.palabra.split('').each do |l| %>
+        <% @@ahorcado.palabra.split('').each do |l| %>
         <%= "<td>#{l}</td>" %>
         <% end %>
         </tr>
         <tr>
-        <% @ahorcado.palabra.split('').each do |l| %>
+        <% @@ahorcado.palabra.split('').each do |l| %>
         <%= "<td>-</td>" %>
         <% end %>
         </tr>
@@ -28,13 +23,11 @@
   </tr>
 </table>
 
+<form method="POST" action="/">
+  <input type="text" id=letra name=letra />
+  <input type="submit" value="enviar"/>
+</form>
 
-
-letra= <% @@mm.input %>
-
-
+<h1>OK</h1>
 </body>
 </html>
-
-
-

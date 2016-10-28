@@ -16,9 +16,8 @@ class Ahorcado
     validar_ingreso
   end
 
-
   def validar_ingreso
-    if @letra.length == 1
+    if @letra.length == 1 and @letra =~ /[A-Za-z]/m
       return true
     end
     return false
