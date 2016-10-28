@@ -19,4 +19,24 @@ require './lib/ahorcado'
       expect(a.validar_ingreso).to eq true
     end
 
+    it 'validar reemplazo de palabra cuando letra ocurre' do
+      a = Ahorcado.new("MILANESA")
+      a.ingresar_letra("M")
+      expect(a.palabra_actual).to eq "M-------"
+    end
+
+    it 'validar reemplazo de palabra cuando letra NO ocurre' do
+      a = Ahorcado.new("MILANESA")
+      a.ingresar_letra("J")
+      expect(a.palabra_actual).to eq "--------"
+    end
+
+    it 'validar reemplazo de palabra cuando letra ocurre varias veces' do
+      a = Ahorcado.new("MILANESA")
+      a.ingresar_letra("M")
+      expect(a.palabra_actual).to eq "M-------"
+      a.ingresar_letra("A")
+      expect(a.palabra_actual).to eq "M--A---A"
+    end
+
 end
