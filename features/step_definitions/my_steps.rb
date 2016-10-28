@@ -10,3 +10,9 @@ Then(/^true$/) do
   last_response.body.should =~ /true/m
 end
 
+Then(/^mostrar letras coincidentes$/) do
+  last_response.should have_xpath( "//tr[@id=\"pr\"]/td") do |td|
+    td.should contain( '-' )
+  end
+end
+

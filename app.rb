@@ -8,6 +8,6 @@ end
 
 post '/' do
     letra = params[:letra]
-    @estado = @@ahorcado.ingresar_letra(letra)
+    @estado = @@ahorcado.ingresar_letra(letra.to_s.upcase)
     erb :index
 end

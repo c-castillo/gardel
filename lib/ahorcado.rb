@@ -1,6 +1,6 @@
 class Ahorcado
 
-  attr_reader :palabra, :palabra_reemplazada, :diccionario
+  attr_reader :palabra, :palabra_reemplazada, :diccionario, :gano
   @@PALABRAS = [
     'AEROPUERTO', 'RAVIOLES', 'MILANESA', 'ARROZ', 'CORDERO',
     'AUTOMOVIL','RODILLA', 'CABEZA', 'TRANVIA', 'PELOTA',
@@ -13,6 +13,7 @@ class Ahorcado
     @palabra_reemplazada = ("-"*@palabra.size).split('')
     @letra = ''
     @puntaje = 0
+    @gano = false
   end
 
   def ingresar_letra(letra)
@@ -34,6 +35,7 @@ class Ahorcado
         if (c==l)
           @palabra_reemplazada[p] = l
           esta = true
+	  @gano = true if @palabra_reemplazada.join('') == @palabra
         end
       end
       @puntaje += 1 if !esta

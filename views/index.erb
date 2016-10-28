@@ -8,14 +8,14 @@
     <td><img src="<%= @@ahorcado.puntaje %>.png" height="20%"></td>
     <td>
       <table>
-        <tr>
+        <!--tr>
         <% @@ahorcado.palabra.split('').each do |l| %>
         <%= "<td>#{l}</td>" %>
         <% end %>
-        </tr>
-        <tr>
-        <% @@ahorcado.palabra.split('').each do |l| %>
-        <%= "<td>-</td>" %>
+        </tr-->
+        <tr id="pr">
+        <% @@ahorcado.palabra_reemplazada.each do |l| %>
+        <%= "<td>#{l}</td>" %>
         <% end %>
         </tr>
         </table>
@@ -23,11 +23,17 @@
   </tr>
 </table>
 
+<% if @@ahorcado.puntaje < 5 and !@@ahorcado.gano %>
 <form method="POST" action="/">
   <input type="text" id=letra name=letra />
   <input type="submit" value="enviar"/>
 </form>
-<h1>
+<% elsif @@ahorcado.puntaje < 5 and @@ahorcado.gano %>
+<h1>GANASTE, PERRA</h1>
+<% else %>
+<h1>YOU LOSE, BITCH</h1>
+<% end %>
+<h1 style="display:none">
 <%=@estado%>
 </h1>
 </body>
